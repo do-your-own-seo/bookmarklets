@@ -1,0 +1,1 @@
+javascript:void(window.open(%27https%3A%2F%2Fsearch.google.com%2Ftest%2Frich-results%3Furl=%27+window.location.href,%27_blank%27));">Rich-Results</a></b> и <b><a class="red" href="javascript:void(window.open(%27https://search.google.com/structured-data/testing-tool?url=%27+window.location.href,%27_blank%27));
