@@ -3,9 +3,13 @@ Github markdown does not support JavaScript links, so you'll have to bookmark th
 
 Note that bookmarklets for testing pages on the fly may not work until you allow pop-ups for the page's domain.
 
-**Inurl-search-results-in-the-textarea**: to use the bookmarklet, first go to any page whose origin is *https://www.google.com/*.
-Then click the bookmarklet button and fill the input fields. As a search query you can submit a string with spaces: 
-it would mean that all the words should be found in the URL. When you run the script, you'll get one easy-to-copy list of URLs from all the result pages.
+##Inurl-search-results-in-the-textarea##
+To use the bookmarklet, first go to any page whose origin is https://www.google.com/.
+Then click the bookmark and fill the input fields. As a search query, you can submit a string with white spaces: 
+it would mean that all the words should be found in URLs. 
+
+If you press the Search button, you'll get one easy-to-copy list of URLs from all the result pages. When the script runs, you may need to pass the reCAPTCHA challenge. Then the script execution will be interrupted, and you'll have to run it again.
+
 
 
 
