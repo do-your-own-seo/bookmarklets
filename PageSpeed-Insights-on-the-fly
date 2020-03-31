@@ -1,0 +1,1 @@
+javascript:(function()%7b window.open('http://developers.google.com/speed/pagespeed/insights/?url='+encodeURIComponent(location.href))%7d)();
