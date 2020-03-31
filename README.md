@@ -6,9 +6,9 @@ Note that bookmarklets for testing pages on the fly may not work until you allow
 
 ## Inurl-search-results-in-the-textarea
 
-To use this bookmarklet, first go to any page with the origin https://www.google.com/. Then click the bookmark and fill the input fields. As a search query, you can submit a string with white spaces: it would mean that all the words should be found in URLs. 
+To use this bookmarklet, first go to a page with the origin https://www.google.com/. Then click the bookmark and fill the input fields. As a search query, you can submit a string with white spaces: it would mean that all the words should be found in URLs. 
 
-If you press the Search button, you'll get one easy-to-copy list of URLs from all the result pages. When the script runs, you may need to pass the reCAPTCHA challenge. Then the script execution will be interrupted, and you'll have to run it again.
+If you press the Search button, you'll get one easy-to-copy list of URLs from all the result pages. When the script runs, you may need to pass the reCAPTCHA challenge. Then the script execution will be blocked, and you'll have to run it again.
 
 ## Nofollow-Sponsored-UGC-highlighter
 
