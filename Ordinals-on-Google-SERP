@@ -1,0 +1,1 @@
+javascript:(function () { var start=0,res=[];document.querySelectorAll('.rc > .r').forEach(function(x){if(!x.closest('.kp-blk')){res.push(x)}}); res.forEach(function(x){var e=document.createElement("span"),t=x.querySelector("a");e.setAttribute("style","float:left;margin-left:-40px;line-height:21.6px"); e.innerHTML=start+1+". ";t.insertBefore(e,t.firstChild);start++;}) })();
