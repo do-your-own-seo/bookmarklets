@@ -1,7 +1,7 @@
 javascript: (function() {
     const img = document.images;
     let src, text, list="";
-    for (let t = 0; t < img.length; ++t) w = h = img.naturalHeight, img[t].getAttribute("width") || img[t].getAttribute("height") || (img[t].setAttribute("width", img[t].naturalWidth), img[t].setAttribute("height", img[t].naturalWidth), src = new URL(img[t].src), img[t].src = src.pathname, list+=img[t].outerHTML+"\n");
+    for (let t = 0; t < img.length; ++t) w = h = img.naturalHeight, img[t].getAttribute("width") || img[t].getAttribute("height") || (img[t].setAttribute("width", img[t].naturalWidth), img[t].setAttribute("height", img[t].naturalHeight), src = new URL(img[t].src), img[t].src = src.pathname, list+=img[t].outerHTML+"\n");
     console.log(list);
 })()
 //This version fixes and show the list of all img tags
@@ -10,7 +10,7 @@ javascript: (function() {
 javascript: (function() {
     const img = document.images;
     let src, text;
-    for (let t = 0; t < img.length; ++t) w = h = img.naturalHeight, img[t].getAttribute("width") || img[t].getAttribute("height") || (img[t].setAttribute("width", img[t].naturalWidth), img[t].setAttribute("height", img[t].naturalWidth), src = new URL(img[t].src), img[t].src = src.pathname);
+    for (let t = 0; t < img.length; ++t) w = h = img.naturalHeight, img[t].getAttribute("width") || img[t].getAttribute("height") || (img[t].setAttribute("width", img[t].naturalWidth), img[t].setAttribute("height", img[t].naturalHeight), src = new URL(img[t].src), img[t].src = src.pathname);
     text = document.querySelector(".post-content").innerHTML.replaceAll("http://localhost:4000","{{site.url}}");
     navigator.clipboard.writeText(text).then(()=>{window.alert("Copied")})
 })()
