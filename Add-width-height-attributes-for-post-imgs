@@ -2,9 +2,9 @@ javascript: (function() {
     const img = document.images;
     let src, text, list="";
     for (let t = 0; t < img.length; ++t) w = h = img.naturalHeight, img[t].getAttribute("width") || img[t].getAttribute("height") || (img[t].setAttribute("width", img[t].naturalWidth), img[t].setAttribute("height", img[t].naturalWidth), src = new URL(img[t].src), img[t].src = src.pathname, list+=img[t].outerHTML+"\n");
-    prompt("",list);
+    console.log(list);
 })()
-//This version fixes and show (by prompt) the list of all img tags
+//This version fixes and show the list of all img tags
 
 
 javascript: (function() {
