@@ -1,0 +1,8 @@
+javascript:(function() {
+    const img = document.images;
+    let src, text;
+    for (let t = 0; t < img.length; ++t) w = h = img.naturalHeight, img[t].getAttribute("width") || img[t].getAttribute("height") || (img[t].setAttribute("width", img[t].naturalWidth), img[t].setAttribute("height", img[t].naturalHeight), src = new URL(img[t].src), img[t].src = src.pathname);
+    navigator.clipboard.writeText(document.body.innerHTML).then(() => {
+        window.alert("Copied")
+    })
+})()
