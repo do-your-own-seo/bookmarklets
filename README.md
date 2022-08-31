@@ -1,10 +1,12 @@
-# Usage
+## Usage
 
 Github markdown does not support JavaScript links, so you'll have to bookmark them manually. To use the script, add a bookmark with the raw code as an URL to your browser bar.
 
-Note that bookmarklets for testing pages on the fly may not work until you allow pop-ups for the page's domain.
+Note that SERP related scripts may stop working due to changes in the html code of the Search Results page.
 
-## Inurl-search-results-into-textarea
+Note that bookmarklets for validating pages on the fly may not work until you allow pop-ups.
+
+## Inurl Search Results into the textarea
 
 To use this bookmarklet, first go to a page with the origin https://www.google.com/. Then click the bookmark and fill the input fields. You can set a custom domain to search over or skip the 1st field. As a search query, you can submit a string with white spaces: it would mean that all the words should be found in URLs. 
 
