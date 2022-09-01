@@ -1,0 +1,1 @@
+javascript:void(window.open("https://jigsaw.w3.org/css-validator/validator?uri="+window.location.href+"&profile=css3svg&usermedium=all&warning=1","_blank"));
