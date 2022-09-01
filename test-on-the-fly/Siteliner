@@ -1,0 +1,1 @@
+javascript:void(window.open("https://www.siteliner.com/"+window.location.hostname+"?siteliner=site-dashboard&siteliner-sort=scan_time&siteliner-from=1&siteliner-message=frequency","_blank"));
