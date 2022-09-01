@@ -1,0 +1,1 @@
+javascript:void(window.open("https://validator.w3.org/nu/?doc="+window.location.href,"_blank"));
