@@ -1,1 +1,1 @@
-javascript:void(window.open("https://validator.schema.org/?url="+window.location.href,"_blank"));
+javascript:void(window.open('https://validator.schema.org/?url='+window.location.href,'_blank'));
