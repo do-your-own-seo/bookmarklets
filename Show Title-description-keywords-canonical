@@ -1,0 +1,21 @@
+javascript:void(!function() {
+    var a = document.title,
+        b = document.all.description.content,
+        c = document.all.keywords.content,
+        d = document.getElementById('MetaBookmarklet'),
+        l = document.getElementsByTagName("link"),
+        f, g, n="";
+    for (let i = 0; i < l.length; i++) {
+            if (l[i].rel.match(/canonical/i)) {n = l[i].href}
+        }
+    if (d) {d.remove()} else {
+        f = document.createElement('div');
+        g = document.createElement('div');
+        f.id = 'MetaBookmarklet';
+        f.style = 'position:fixed;z-index:999;left:0;right:0;text-align:center';
+        g.style = 'display:inline-block;max-width:600px;margin:auto;padding:.8cm;background-color:#a6e8a6;text-align:left';
+        g.innerHTML = '<p><b>Title</b>%20(' + a.length + '):%20' + a + '</p><p><b>Description</b>%20(' + b.length + '):%20' + b + '</p><p><b>Keywords</b>%20(' + c.length + '):%20' + c + '</p><p><b>canonical: </b> ' + n + '</p>';
+        f.appendChild(g);
+        document.body.insertBefore(f, document.body.firstChild)
+    }
+}())
