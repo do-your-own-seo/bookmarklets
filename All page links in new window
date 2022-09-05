@@ -1,0 +1,19 @@
+javascript:(function() {
+    let num = 0, newWin = window.open().document, z = document.links;
+
+    function htmlEscape(s) {
+        s = s.replace(/&/g, '&');
+        s = s.replace(/>/g, '>');
+        s = s.replace(/</g, '<');
+        return s;
+    }
+    newWin.writeln('Links on <a href="' + location.href + '">' +  location.href +'</a><br><hr>');
+
+    for (let i = 0; i < z.length; ++i) {
+        if (z[i].innerHTML) {
+            newWin.writeln(++num + '. <a href="' + htmlEscape(z[i].href) + '">' +  z[i].textContent.substring(0,100) + '</a><br>');
+        }
+    }
+    newWin.writeln('<hr></body></html>');
+    newWin.close();
+})();
