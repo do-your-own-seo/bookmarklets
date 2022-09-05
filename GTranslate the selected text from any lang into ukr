@@ -1,0 +1,9 @@
+javascript: (function translate() {
+    function findSelected(t) {
+        return t.selection ? t.selection.createRange().text : t.getSelection()
+    }
+    s = findSelected(document);
+    for (i = 0; i < frames.length && !s; i++) s = findSelected(frames[i].document);
+    if (!s || s == '') s = prompt('Enter your text', '');
+    open('https://translate.google.com/?sl=auto&op=translate&tl=uk&text=' + (s ? encodeURIComponent(s) : '')).focus();
+})();
