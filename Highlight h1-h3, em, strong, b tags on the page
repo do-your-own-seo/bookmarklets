@@ -1,0 +1,10 @@
+javascript:(function() {
+    let style = document.getElementById('outstanding'), newStyle;
+    if (style) {style.remove()} else {
+        newStyle = document.createElement('style');
+        newStyle.setAttribute('type', 'text/css');
+        newStyle.setAttribute('id', 'outstanding');
+        newStyle.innerHTML = 'strong:before {content: \u0022<strn: \u0022 !important} b:before {content: \u0022<b>: \u0022 !important} em:before {content: \u0022<em>: \u0022 !important} strong {background-color: #99c93a !important; color: black !important} b {background-color: #90BDD0 !important; color: black !important} em {background-color: #efb6fb  !important; color: black !important;} h1:before {content: \u0022<h1> \u0022 !important} h2:before {content: \u0022<h2> \u0022 !important} h3:before {content: \u0022<h3> \u0022 !important} h1 {padding: 2px !important; background-color: #fc2929 !important; border: solid !important; border-radius: 9px !important; color: black !important} h2 {padding: 2px !important; background-color: #FF7C1C !important; border: solid !important; border-radius: 7px !important; color: black !important} h3 {background-color: #ffb300 !important; border: solid !important; padding: 2px !important; border-radius: 5px !important ; color: black !important}';
+        document.body.appendChild(newStyle);
+    }
+})()
