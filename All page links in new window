@@ -1,5 +1,5 @@
 javascript:(function() {
-    let num = 0, newWin = window.open().document, z = document.links;
+    let num = 0, newWin = window.open().document, lnk = document.links;
 
     function htmlEscape(s) {
         s = s.replace(/&/g, '&');
@@ -7,11 +7,21 @@ javascript:(function() {
         s = s.replace(/</g, '<');
         return s;
     }
-    newWin.writeln('Links on <a href="' + location.href + '">' +  location.href +'</a><br><hr>');
+    newWin.writeln('Links on <a href=\"' + location.href + '\">' +  location.href +'</a><br><hr>');
 
-    for (let i = 0; i < z.length; ++i) {
-        if (z[i].innerHTML) {
-            newWin.writeln(++num + '. <a href="' + htmlEscape(z[i].href) + '">' +  z[i].textContent.substring(0,100) + '</a><br>');
+    for (let i = 0; i < lnk.length; ++i) {
+        if (lnk[i].innerHTML) {
+            newWin.writeln(++num + '. <a href=\"' + htmlEscape(lnk[i].href) + '\">');
+        	if (lnk[i].innerText.length > 1) {
+        		newWin.writeln(lnk[i].innerText.substring(0,100));
+        	} else if (lnk[i].getAttribute('aria-label')) {
+        		newWin.writeln(lnk[i].getAttribute('aria-label'));
+        	} else if (lnk[i].getAttribute('title')) {
+        		newWin.writeln(lnk[i].getAttribute('title'));
+        	} else {
+        		newWin.writeln(lnk[i].innerText);
+        	}
+        	newWin.writeln('</a><br>');
         }
     }
     newWin.writeln('<hr></body></html>');
