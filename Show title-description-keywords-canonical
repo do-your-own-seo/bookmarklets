@@ -3,8 +3,8 @@ javascript:void(!function() {
         b = document.all.description.content,
         c = document.all.keywords.content,
         d = document.getElementById('MetaBookmarklet'),
-        l = document.getElementsByTagName("link"),
-        f, g, n="";
+        l = document.getElementsByTagName('link'),
+        f, g, n='';
     for (let i = 0; i < l.length; i++) {
             if (l[i].rel.match(/canonical/i)) {n = l[i].href}
         }
