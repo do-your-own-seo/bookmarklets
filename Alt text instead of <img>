@@ -7,8 +7,13 @@ javascript: (function() {
     let images = toArray(document.images);
     for (let i = 0; i < images.length; ++i) {
         let img = images[i], div = document.createElement("div");
+        if (!img.alt) {
+            img.alt="There is no alt text";
+            div.style.backgroundColor="red";
+        } else {
+            div.style.backgroundColor="orange";
+        }
         div.appendChild(document.createTextNode(img.alt));
-        div.style.backgroundColor="orange";
         img.parentNode.replaceChild(div, img);
     }
 })();
