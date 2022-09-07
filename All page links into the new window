@@ -1,0 +1,46 @@
+javascript:(function() {
+    let num = 0, newWin = window.open().document, lnk = document.links, href, text, aria, title, inaccessible = '<b>???????????????inaccessible link</b>';
+    function htmlEscape(s) {
+        s = s.replace(/&/g, '&');
+        s = s.replace(/>/g, '>');
+        s = s.replace(/</g, '<');
+        return s;
+    }
+    function isURL(s) {
+        try { return Boolean(new URL(s)); }
+        catch(e){ return false; }
+    }
+    newWin.writeln('Links on <a href=\'' + location.href + '\'>' +  location.href +'</a><br><hr>');
+    for (let i = 0; i < lnk.length; ++i) {
+        href = lnk[i].href; 
+        text = lnk[i].innerText;
+        aria = lnk[i].getAttribute('aria-label');
+        title = lnk[i].getAttribute('title');
+        newWin.writeln(++num + '. <a href=\'');
+        if (lnk[i].innerHTML) {
+            if (!href.startsWith('javascript:')) {
+                newWin.writeln(htmlEscape(href) + '\'>');
+            } else {
+                newWin.writeln('javascript:\'>');
+            }
+            if (isURL(href)) {
+                if (text.length > 1) {
+                    newWin.writeln(text.substring(0,100));
+                } else if (aria) {
+                    newWin.writeln(aria);
+                } else if (title) {
+                    newWin.writeln(title);
+                } else {
+                    newWin.writeln(inaccessible);
+                }
+            } else {
+                newWin.writeln('<b>???????????????href is not a valid URL</b>');
+            }
+        } else {
+            newWin.writeln('\'>'+ inaccessible);
+        }
+        newWin.writeln('</a><br>');
+    }
+    newWin.writeln('<hr></body></html>');
+    newWin.close();
+})();
