@@ -1,43 +1,53 @@
-javascript:(function() {
-    let num = 0, newWin = window.open().document, lnk = document.links, href, text, aria, title, inaccessible = '<b>???????????????inaccessible link</b>';
+javascript: (function() {
+    let num = 0, newWin = window.open().document, lnk = document.links,
+        href, text, aria, title, isAccessible, isValid, 
+        error1 = '<b>????????href is not a valid URL</b>????????',
+        error2 = '<b>????????inaccessible link????????</b>';
     function htmlEscape(s) {
-        s = s.replace(/&/g, '&');
-        s = s.replace(/>/g, '>');
-        s = s.replace(/</g, '<');
+        s = s.replace(/&/g, '&').replace(/>/g, '>').replace(/</g, '<');
         return s;
     }
     function isURL(s) {
-        try { return Boolean(new URL(s)); }
-        catch(e){ return false; }
+        try { return Boolean(new URL(s)); } catch (e) { return false; }
     }
-    newWin.writeln('Links on <a href=\'' + location.href + '\'>' +  location.href +'</a><br><hr>');
+    newWin.writeln('Links on <a href=\'' + location.href + '\'>' + location.href + '</a><br><hr>');
     for (let i = 0; i < lnk.length; ++i) {
-        href = lnk[i].href; 
+        isAccessible = 1;
+        isValid = 1;
+        href = lnk[i].href;
         text = lnk[i].innerText;
         aria = lnk[i].getAttribute('aria-label');
         title = lnk[i].getAttribute('title');
         newWin.writeln(++num + '. <a href=\'');
+        if (!href.startsWith('javascript:')) {
+            newWin.writeln(htmlEscape(href) + '\'>');
+        } else {
+            newWin.writeln('javascript:\'>');
+        }
+        if (!isURL(href)) {
+            isValid = 0
+        }
         if (lnk[i].innerHTML) {
-            if (!href.startsWith('javascript:')) {
-                newWin.writeln(htmlEscape(href) + '\'>');
+            if (text.length > 1) {
+                newWin.writeln(text.substring(0, 100));
+            } else if (aria) {
+                newWin.writeln(aria);
+            } else if (title) {
+                newWin.writeln(title);
             } else {
-                newWin.writeln('javascript:\'>');
-            }
-            if (isURL(href)) {
-                if (text.length > 1) {
-                    newWin.writeln(text.substring(0,100));
-                } else if (aria) {
-                    newWin.writeln(aria);
-                } else if (title) {
-                    newWin.writeln(title);
-                } else {
-                    newWin.writeln(inaccessible);
-                }
-            } else {
-                newWin.writeln('<b>???????????????href is not a valid URL</b>');
+                isAccessible = 0;
             }
         } else {
-            newWin.writeln('\'>'+ inaccessible);
+            isAccessible = 0;
+        }
+        if (!isValid) {
+            newWin.writeln(error1);
+        }
+        if (!isAccessible) {
+            if (!isValid) {
+                newWin.writeln('<br>');
+            }
+            newWin.writeln(error2);
         }
         newWin.writeln('</a><br>');
     }
